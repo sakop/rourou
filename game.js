@@ -16,7 +16,7 @@ function showMessage(dude, star) {
     });
     hitCount++;
     text.anchor.setTo(0.5);
-    game.add.tween(text).to({y: game.height + 100}, 3000, null, true, 0, 0, false);
+    game.add.tween(text).to({y: game.height + 100}, 4000, null, true, 0, 0, false);
 
     if (hitCount == 9) {
         setTimeout(function () {
@@ -43,7 +43,7 @@ var boot = {
         game.load.image("cats", "assets/cat_lovers.jpg");
         game.load.audio("score", "assets/score.wav");
         game.load.audio("balloon", "assets/balloon.mp3");
-        game.load.image("background", "assets/cat_lovers.jpg");
+        game.load.image("cat", "assets/cat_lovers.jpg");
         game.load.image("white", "assets/white.png");
         game.load.image("red", "assets/red.png");
         game.load.onFileComplete.add(this.fileLoaded, this);
@@ -142,7 +142,7 @@ var stateB = {
     },
     create: function () {
         game.physics.startSystem(Phaser.Physics.ARCADE);
-        var bg = game.add.sprite(0, 0, "background");
+        var bg = game.add.sprite(0, 0, "cat");
         bg.width = game.width;
         bg.height = game.height;
 
