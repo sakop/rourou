@@ -25,7 +25,16 @@ function showMessage(dude, star) {
     }
 }
 
-var stateA = {
+var loadingText;
+var boot = {
+    init: function () {
+        loadingText = this.add.text(game.width / 2, 300, "Plz wait, Loading: 0%", {
+            font: "32px Arial",
+            fill: "#ffffff",
+            align: "center"
+        });
+        loadingText.anchor.setTo(.5);
+    },
     preload: function () {
         game.load.image("background", "assets/sky.png");
         game.load.image("star", "assets/star.png");
@@ -34,6 +43,23 @@ var stateA = {
         game.load.image("cats", "assets/cat_lovers.jpg");
         game.load.audio("score", "assets/score.wav");
         game.load.audio("balloon", "assets/balloon.mp3");
+        game.load.image("background", "assets/cat_lovers.jpg");
+        game.load.image("white", "assets/white.png");
+        game.load.image("red", "assets/red.png");
+        game.load.onFileComplete.add(this.fileLoaded, this);
+    },
+    create: function () {
+        game.state.start("game");
+    },
+    fileLoaded: function (progress) {
+        loadingText.text = "Plz wait, Loading: " + progress + "%";
+    }
+
+};
+
+var stateA = {
+    preload: function () {
+
     },
 
     create: function () {
@@ -113,9 +139,6 @@ var stateA = {
 var happyBirthDayChinese, happyBirthDayEnglish, amengmeng;
 var stateB = {
     preload: function () {
-        game.load.image("background", "assets/cat_lovers.jpg");
-        game.load.image("white", "assets/white.png");
-        game.load.image("red", "assets/red.png");
     },
     create: function () {
         game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -155,7 +178,8 @@ var stateB = {
     }
 };
 
+game.state.add("boot", boot);
 game.state.add("game", stateA);
 game.state.add("memorial", stateB);
-game.state.start("game");
+game.state.start("boot");
 
