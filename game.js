@@ -25,10 +25,23 @@ function showMessage(dude, star) {
     }
 }
 
-var loadingText;
 var boot = {
+    preload: function () {
+        game.load.image("boot_background", "assets/background-star.png");
+    },
+    create: function () {
+        game.state.start("preload");
+    }
+};
+
+var loadingText;
+var preload = {
     init: function () {
-        loadingText = this.add.text(game.width / 2, 300, "Plz wait, Loading: 0%", {
+        var bootBackground = game.add.image(0, 0, "boot_background");
+        bootBackground.width = game.width;
+        bootBackground.height = game.height;
+
+        loadingText = game.add.text(game.width / 2, 300, "Plz wait, Loading: 0%", {
             font: "32px Arial",
             fill: "#ffffff",
             align: "center"
@@ -169,8 +182,6 @@ var stateB = {
         emitter2.setYSpeed(-150, -250);
         emitter2.gravity = 300;
         emitter2.flow(5000, 200, 1, -1);
-
-
     },
     update: function () {
         happyBirthDayChinese.rotation += 0.02;
@@ -179,7 +190,8 @@ var stateB = {
 };
 
 game.state.add("boot", boot);
+game.state.add("preload", preload);
 game.state.add("game", stateA);
 game.state.add("memorial", stateB);
-game.state.start("boot");
+game.state.start("memorial");
 
