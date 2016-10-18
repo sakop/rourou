@@ -193,5 +193,5 @@ game.state.add("boot", boot);
 game.state.add("preload", preload);
 game.state.add("game", stateA);
 game.state.add("memorial", stateB);
-game.state.start("memorial");
+game.state.start("boot");
 
