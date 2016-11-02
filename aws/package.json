@@ -1,0 +1,9 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "dependencies": {
+    "aws-sdk": "^2.6.13",
+    "callback2promise": "^1.0.2",
+    "jmespath": "^0.15.0"
+  }
+}

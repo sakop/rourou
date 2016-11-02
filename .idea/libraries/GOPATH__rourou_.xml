@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="GOPATH &lt;rourou&gt;">
+    <CLASSES>
+      <root url="file://$USER_HOME$/code/gopath/src/gopl.io" />
+    </CLASSES>
+    <SOURCES>
+      <root url="file://$USER_HOME$/code/gopath/src/gopl.io" />
+    </SOURCES>
+    <excluded>
+      <root url="file://$PROJECT_DIR$" />
+    </excluded>
+  </library>
+</component>
